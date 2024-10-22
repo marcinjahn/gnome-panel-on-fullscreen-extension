@@ -10,7 +10,7 @@
     "build": "npm run clean && rollup -c && npm run lint-dist",
     "lint-dist": "eslint -c .eslintrc.dist.json --fix dist/*.js",
     "start:dev:wayland": "npm run build && dbus-run-session -- gnome-shell --nested --wayland",
-    "linkdist": "ln -s \"$PWD/dist\" \"$HOME/.local/share/gnome-shell/extensions/peek-top-bar-on-fullscreen@marcinjahn.com\"",
+    "linkdist": "rm -rf \"$HOME/.local/share/gnome-shell/extensions/peek-top-bar-on-fullscreen@marcinjahn.com\" && ln -s \"$PWD/dist\" \"$HOME/.local/share/gnome-shell/extensions/peek-top-bar-on-fullscreen@marcinjahn.com\"",
     "zip": "npm run build && rm -rf './dist/peek-top-bar-on-fullscreen@marcinjahn.com.zip' && cd ./dist && zip -qr 'peek-top-bar-on-fullscreen@marcinjahn.com.zip' .",
     "bump-version": "./scripts/bump-version.sh",
     "log:extension": "journalctl -f -o cat GNOME_SHELL_EXTENSION_UUID=peek-top-bar-on-fullscreen@marcinjahn.com",
